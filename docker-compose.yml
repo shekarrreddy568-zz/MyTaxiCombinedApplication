@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.3'
 services:
   zookeeper:
     image: confluentinc/cp-zookeeper:5.1.0
@@ -56,18 +56,11 @@ services:
       retries: 3
 
   payment:
-    build: .
+    build: paymentservice/.
     image: producer:latest
     depends_on:
       - kafka
       - schemaregistry
-
-#  payment:
-#    build: paymentservice/.
-#    image: producer:latest
-#    depends_on:
-#      - kafka
-#      - schemaregistry
 
   cassandra:
     image: cassandra:latest
