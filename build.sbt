@@ -45,12 +45,12 @@ assemblyMergeStrategy in assembly := {
   case x => MergeStrategy.first
 }
 
-excludedFiles in assembly <<=
-  (excludedFiles in assembly) {
-    (old) => (bases) =>
-      old(bases) ++ (bases flatMap (base =>
-        (base / "META-INF/io.netty.versions.properties").get))
-  }
+//excludedFiles in assembly <<=
+//  (excludedFiles in assembly) {
+//    (old) => (bases) =>
+//      old(bases) ++ (bases flatMap (base =>
+//        (base / "META-INF/io.netty.versions.properties").get))
+//  }
 
 
 //mappings in (Compile, packageSrc) += {
