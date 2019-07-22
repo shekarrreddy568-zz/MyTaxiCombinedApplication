@@ -89,14 +89,14 @@ services:
       timeout: 10s
       retries: 3
 
-  #    cassandra-load-keyspace:
-  #        container_name: cassandra-load-keyspace
-  #        image: cassandra:latest
-  #        depends_on:
-  #          - cassandra
-  #        volumes:
-  #          - ./schema.cql:/schema.cql
-  #        command: /bin/bash -c "sleep 60 && echo loading cassandra keyspace && cqlsh cassandra -f /schema.cql; exit 0"
+#    cassandra-load-keyspace:
+#        container_name: cassandra-load-keyspace
+#        image: cassandra:latest
+#        depends_on:
+#          - cassandra
+#        volumes:
+#          - ./schema.cql:/schema.cql
+#        command: /bin/bash -c "sleep 60 && echo loading cassandra keyspace && cqlsh cassandra -f /schema.cql; exit 0"
 
 #  paymentsconsumer:
 #    build: MyTaxiPaymentsConsumer/.

@@ -29,7 +29,7 @@ lazy val MyTaxiPaymentsConsumer = (project in file ("MyTaxiPaymentsConsumer")).
   settings(
     name := "MyTaxiPaymentsConsumer",
     sourceGenerators in Compile += (avroScalaGenerateSpecific in Compile).taskValue,
-    mainClass := Some("com.example.examplesub.Main"),
+    mainClass := Some("com.mytaxi.data.test.payments.PaymentsConsumer"),
     assemblyJarName in assembly := "consumer.jar",
     libraryDependencies ++= Seq(
       avroSerializer,
