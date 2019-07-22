@@ -58,9 +58,9 @@ services:
   payment:
     build: .
     image: mytaxiapp:latest
-    depends_on:
-      - kafka
-      - schemaregistry
+#    depends_on:
+#      - kafka
+#      - schemaregistry
 
 
 #  payment:
