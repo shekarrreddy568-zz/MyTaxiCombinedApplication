@@ -1,6 +1,6 @@
 #!/bin/bash
 
-KAFKA_HOST=kafka
+KAFKA_HOST=localhost
 KAFKA_PORT=9092
 echo "Waiting for kafka to launch on ${KAFKA_HOST}:${KAFKA_PORT}..."
 
