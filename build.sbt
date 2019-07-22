@@ -16,6 +16,7 @@ lazy val paymentservice = (project in file ("paymentservice")).
     name := "paymentservice",
     sourceGenerators in Compile += (avroScalaGenerateSpecific in Compile).taskValue,
     mainClass := Some("com.mytaxi.data.test.paymentservice.Paymentservice"),
+    assemblyJarName in assembly := "producer.jar",
     libraryDependencies ++= Seq(
       avroSerializer,
       kafkaClient,
@@ -29,6 +30,7 @@ lazy val MyTaxiPaymentsConsumer = (project in file ("MyTaxiPaymentsConsumer")).
     name := "MyTaxiPaymentsConsumer",
     sourceGenerators in Compile += (avroScalaGenerateSpecific in Compile).taskValue,
     mainClass := Some("com.example.examplesub.Main"),
+    assemblyJarName in assembly := "consumer.jar",
     libraryDependencies ++= Seq(
       avroSerializer,
       kafkaClient,
@@ -42,11 +44,18 @@ lazy val MyTaxiPaymentsConsumer = (project in file ("MyTaxiPaymentsConsumer")).
 
 assemblyMergeStrategy in assembly := {
   case PathList("META-INF", xs@_*) => MergeStrategy.discard
-  case PathList("META-INF/io.netty.versions.properties") => MergeStrategy.discard
+  case "META-INF/io.netty.versions.properties" => MergeStrategy.first
   case x =>
     val oldStrategy = (assemblyMergeStrategy in assembly).value
     oldStrategy(x)
 }
+
+//assemblyMergeStrategy in assembly := {
+//  case "META-INF/io.netty.versions.properties" => MergeStrategy.first
+//  case x =>
+//    val oldStrategy = (assemblyMergeStrategy in assembly).value
+//    oldStrategy(x)
+//}
 
 //excludedFiles in Assembly := { (base: Seq[File]) =>
 //  (((base / "META-INF" ** "*") ---
