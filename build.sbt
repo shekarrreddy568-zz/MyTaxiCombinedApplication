@@ -5,7 +5,7 @@ lazy val root = (project in file(".")).
   aggregate(paymentservice, MyTaxiPaymentsConsumer).
   settings(
     inThisBuild(List(
-      organization := "com.example",
+      organization := "com.mytaxi.data.test.paymentservice",
       scalaVersion := "2.12.4",
       resolvers += "io.confluent" at "http://packages.confluent.io/maven/"
     )),
@@ -15,7 +15,7 @@ lazy val paymentservice = (project in file ("paymentservice")).
   settings(
     name := "paymentservice",
     sourceGenerators in Compile += (avroScalaGenerateSpecific in Compile).taskValue,
-    mainClass := Some("com.example.examplepub.Main"),
+    mainClass := Some("com.mytaxi.data.test.paymentservice.Paymentservice"),
     libraryDependencies ++= Seq(
       avroSerializer,
       kafkaClient,

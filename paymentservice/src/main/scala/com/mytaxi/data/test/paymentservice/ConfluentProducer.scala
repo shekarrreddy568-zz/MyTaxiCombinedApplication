@@ -2,7 +2,7 @@ package com.mytaxi.data.test.paymentservice
 
 import java.util.Properties
 
-//import com.mytaxi.data.test.paymentservice.avro.User
+import com.mytaxi.data.test.paymentservice.avro.User
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerConfig, ProducerRecord}
 import io.confluent.kafka.serializers.KafkaAvroSerializer
