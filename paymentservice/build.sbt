@@ -39,3 +39,8 @@ lazy val MyTaxiPaymentsConsumer = (project in file ("MyTaxiPaymentsConsumer")).
       scalaConfig,
       scalaParserCombinators)
   ).dependsOn(paymentservice)
+
+assemblyMergeStrategy in assembly := {
+  case PathList("META-INF", xs@_*) => MergeStrategy.discard
+  case x => MergeStrategy.first
+}
