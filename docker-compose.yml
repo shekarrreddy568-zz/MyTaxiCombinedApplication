@@ -56,11 +56,19 @@ services:
       retries: 3
 
   payment:
-    build: paymentservice/.
+    build: .
     image: producer:latest
     depends_on:
       - kafka
       - schemaregistry
+
+
+#  payment:
+#    build: paymentservice/.
+#    image: producer:latest
+#    depends_on:
+#      - kafka
+#      - schemaregistry
 
   cassandra:
     image: cassandra:latest
