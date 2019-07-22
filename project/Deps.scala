@@ -10,13 +10,10 @@ object Deps {
   val scalaTestVersion = "3.0.4"
   val scallopVersion = "3.1.1"
   val avroSerializerVersion = "4.0.0"
-  val jacksonVersion = "2.9.4"
   val cassandraDriverVersion = "3.0.0"
   val configVersion = "1.3.2"
   val scalaParserComboVersion = "1.0.4"
 
-  lazy val jacksonCore = "com.fasterxml.jackson.core" % "jackson-databind" % jacksonVersion
-  lazy val jacksonScala = "com.fasterxml.jackson.module" %% "jackson-module-scala" % jacksonVersion
   lazy val avro = "org.apache.avro" % "avro" % avroVersion
   lazy val avroSerializer = "io.confluent" % "kafka-avro-serializer" % avroSerializerVersion
   lazy val avroStreamsSerializer = "io.confluent" % "kafka-streams-avro-serde" % avroSerializerVersion

@@ -39,7 +39,13 @@ lazy val MyTaxiPaymentsConsumer = (project in file ("MyTaxiPaymentsConsumer")).
       scalaLogging,
       scallop,
       scalaConfig,
-      scalaParserCombinators)
+      scalaParserCombinators),
+    assemblyMergeStrategy in assembly := {
+      case "META-INF/io.netty.versions.properties" => MergeStrategy.first
+      case x =>
+        val oldStrategy = (assemblyMergeStrategy in assembly).value
+        oldStrategy(x)
+    }
   ).dependsOn(paymentservice)
 
 assemblyMergeStrategy in assembly := {
@@ -49,12 +55,6 @@ assemblyMergeStrategy in assembly := {
     oldStrategy(x)
 }
 
-assemblyMergeStrategy in assembly := {
-  case "META-INF/io.netty.versions.properties" => MergeStrategy.first
-  case x =>
-    val oldStrategy = (assemblyMergeStrategy in assembly).value
-    oldStrategy(x)
-}
 
 //excludedFiles in Assembly := { (base: Seq[File]) =>
 //  (((base / "META-INF" ** "*") ---
