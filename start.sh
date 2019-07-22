@@ -10,4 +10,4 @@ while ! nc -z ${KAFKA_HOST} ${KAFKA_PORT}; do
 done
 
 java -jar ./paymentservice/target/scala-2.12/producer.jar &
-java -jar ./MyTaxiPaymentsConsumer/target/scala-2.12/consumer.jar &
+java -jar ./MyTaxiPaymentsConsumer/target/scala-2.12/consumer.jar
