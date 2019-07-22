@@ -57,7 +57,7 @@ services:
 
   payment:
     build: .
-    image: producer:latest
+    image: mytaxiapp:latest
     depends_on:
       - kafka
       - schemaregistry
