@@ -40,15 +40,23 @@ lazy val MyTaxiPaymentsConsumer = (project in file ("MyTaxiPaymentsConsumer")).
       scalaParserCombinators)
   ).dependsOn(paymentservice)
 
-assemblyMergeStrategy in assembly := {
-  case PathList("META-INF", xs@_*) => MergeStrategy.discard
-  case x => MergeStrategy.first
+
+mergeStrategy in assembly <<= (mergeStrategy in assembly) { (old) =>
+{
+  case PathList("META-INF/io.netty.versions.properties") => MergeStrategy.discard
+  case x => old(x)
+}
 }
 
-excludedFiles in Assembly := { (base: Seq[File]) =>
-  (((base / "META-INF" ** "*") ---
-      (base / "META-INF" / "services" ** "*") ---
-      (base / "META-INF" / "maven" ** "*"))).get }
+//assemblyMergeStrategy in assembly := {
+//  case PathList("META-INF", xs@_*) => MergeStrategy.discard
+//  case x => MergeStrategy.first
+//}
+
+//excludedFiles in Assembly := { (base: Seq[File]) =>
+//  (((base / "META-INF" ** "*") ---
+//      (base / "META-INF" / "services" ** "*") ---
+//      (base / "META-INF" / "maven" ** "*"))).get }
 
 //mappings in (Compile, packageSrc) += {
 //  ((resourceManaged in Compile).value / "User.scala") -> "paymentservice/src/main/scala/com/mytaxi/data/test/paymentservice/User.scala"
