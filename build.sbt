@@ -44,3 +44,15 @@ assemblyMergeStrategy in assembly := {
   case PathList("META-INF", xs@_*) => MergeStrategy.discard
   case x => MergeStrategy.first
 }
+
+excludedFiles in assembly <<=
+  (excludedFiles in assembly) {
+    (old) => (bases) =>
+      old(bases) ++ (bases flatMap (base =>
+        (base / "META-INF/io.netty.versions.properties").get))
+  }
+
+
+//mappings in (Compile, packageSrc) += {
+//  ((resourceManaged in Compile).value / "User.scala") -> "paymentservice/src/main/scala/com/mytaxi/data/test/paymentservice/User.scala"
+//}
