@@ -4,8 +4,8 @@ RUN apt-get install -y netcat
 RUN apt-get install -y jq
 RUN apt-get install -y telnet
 
-ENV SCALA_VERSION 2.12.2
-ENV SBT_VERSION 1.1.6
+ENV SCALA_VERSION 2.12.4
+ENV SBT_VERSION 1.2.8
 
 RUN \
   curl -L -o sbt-$SBT_VERSION.deb http://dl.bintray.com/sbt/debian/sbt-$SBT_VERSION.deb && \
