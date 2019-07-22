@@ -3,7 +3,7 @@ import sbt._
 object Deps {
 
   val avroVersion = "1.8.2"
-  val kafkaVersion = "1.0.0"
+  val kafkaVersion = "2.1.0"
   val kafkaStreamsScalaVersion = "0.1.0"
   val scalaArmVersion = "2.0"
   val scalaLoggingVersion = "3.7.2"
