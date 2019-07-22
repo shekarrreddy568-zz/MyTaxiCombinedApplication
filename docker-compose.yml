@@ -56,11 +56,18 @@ services:
       retries: 3
 
   payment:
-    build: paymentservice/.
+    build: .
     image: producer:latest
     depends_on:
       - kafka
       - schemaregistry
+
+#  payment:
+#    build: paymentservice/.
+#    image: producer:latest
+#    depends_on:
+#      - kafka
+#      - schemaregistry
 
   cassandra:
     image: cassandra:latest
@@ -90,9 +97,9 @@ services:
   #          - ./schema.cql:/schema.cql
   #        command: /bin/bash -c "sleep 60 && echo loading cassandra keyspace && cqlsh cassandra -f /schema.cql; exit 0"
 
-  paymentsconsumer:
-    build: MyTaxiPaymentsConsumer/.
-    image: consumer:latest
-    depends_on:
-      - kafka
-      - schemaregistry
+#  paymentsconsumer:
+#    build: MyTaxiPaymentsConsumer/.
+#    image: consumer:latest
+#    depends_on:
+#      - kafka
+#      - schemaregistry
