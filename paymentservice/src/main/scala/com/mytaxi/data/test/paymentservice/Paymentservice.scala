@@ -1,5 +1,6 @@
 package com.mytaxi.data.test.paymentservice
 
+import com.mytaxi.data.test.paymentservice.avro.User
 import com.typesafe.scalalogging.LazyLogging
 
 object Paymentservice extends App with LazyLogging {
