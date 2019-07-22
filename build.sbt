@@ -43,7 +43,9 @@ lazy val MyTaxiPaymentsConsumer = (project in file ("MyTaxiPaymentsConsumer")).
 assemblyMergeStrategy in assembly := {
   case PathList("META-INF", xs@_*) => MergeStrategy.discard
   case PathList("META-INF/io.netty.versions.properties") => MergeStrategy.discard
-  case x => MergeStrategy.first
+  case x =>
+    val oldStrategy = (assemblyMergeStrategy in assembly).value
+    oldStrategy(x)
 }
 
 //excludedFiles in Assembly := { (base: Seq[File]) =>
