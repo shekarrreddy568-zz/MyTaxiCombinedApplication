@@ -19,4 +19,4 @@ WORKDIR .
 ADD . /
 RUN sbt assembly
 #COPY start.sh /usr/bin/start.sh
-CMD ["/bin/bash","-c","chmod +x /paymentservice/start.sh && /paymentservice/start.sh"]
+CMD ["/bin/bash","-c","chmod +x start.sh && ./start.sh"]
