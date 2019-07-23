@@ -23,7 +23,13 @@ lazy val paymentservice = (project in file ("paymentservice")).
       scalaArm,
       scalaLogging,
       logbackClassic,
-      scallop)
+      scallop),
+    assemblyMergeStrategy in assembly := {
+      case PathList("org/slf4j/impl", xs@_*) => MergeStrategy.first
+      case x =>
+        val oldStrategy = (assemblyMergeStrategy in assembly).value
+        oldStrategy(x)
+    }
   )
 
 lazy val MyTaxiPaymentsConsumer = (project in file ("MyTaxiPaymentsConsumer")).
