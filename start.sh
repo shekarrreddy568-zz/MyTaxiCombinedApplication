@@ -1,8 +1,8 @@
 #!/bin/bash
 
-KAFKA_HOST=localhost
+KAFKA_HOST=kafka #localhost
 KAFKA_PORT=9092
-SCHEMA_REGISTRY_HOST=localhost
+SCHEMA_REGISTRY_HOST=schemaregistry #localhost
 SCHEMA_REGISTRY_PORT=8081
 
 echo "Waiting for kafka to launch on ${KAFKA_HOST}:${KAFKA_PORT}..."
