@@ -11,7 +11,7 @@ lazy val root = (project in file(".")).
     )),
     name := "MyTaxiApplication"
   )
-lazy val paymentservice = (project in file ("paymentservice")).
+lazy val paymentservice = (project in file("paymentservice")).
   settings(
     name := "paymentservice",
     sourceGenerators in Compile += (avroScalaGenerateSpecific in Compile).taskValue,
@@ -26,7 +26,7 @@ lazy val paymentservice = (project in file ("paymentservice")).
       scallop),
   )
 
-lazy val MyTaxiPaymentsConsumer = (project in file ("MyTaxiPaymentsConsumer")).
+lazy val MyTaxiPaymentsConsumer = (project in file("MyTaxiPaymentsConsumer")).
   settings(
     name := "MyTaxiPaymentsConsumer",
     sourceGenerators in Compile += (avroScalaGenerateSpecific in Compile).taskValue,
