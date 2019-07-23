@@ -51,7 +51,7 @@ services:
     extra_hosts:
       - "localhost: 127.0.0.1"
     command: |
-      bash -c 'while ! nc -z ${KAFKA_HOST} ${KAFKA_PORT}; do echo "Waiting for kafka to launch on ${KAFKA_HOST}:${KAFKA_PORT}..." && sleep 0.1; done  && \
+      bash -c 'while ! nc -z localhost 9092; do echo "Waiting for kafka to launch on ${KAFKA_HOST}:${KAFKA_PORT}..." && sleep 0.1; done  && \
       exec /etc/confluent/docker/run'
     healthcheck:
       test: ["CMD", "curl", "-f", "http://schemaregistry:8081"]
