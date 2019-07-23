@@ -59,6 +59,7 @@ lazy val MyTaxiPaymentsConsumer = (project in file ("MyTaxiPaymentsConsumer")).
       scalaParserCombinators),
     assemblyMergeStrategy in assembly := {
       case "META-INF/io.netty.versions.properties" => MergeStrategy.first
+      case PathList("org", "slf4j", xs@_*) => MergeStrategy.first
       case x =>
         val oldStrategy = (assemblyMergeStrategy in assembly).value
         oldStrategy(x)
