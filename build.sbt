@@ -33,7 +33,7 @@ lazy val paymentservice = (project in file ("paymentservice")).
 //        oldStrategy(x)
 //    },
     assemblyMergeStrategy in assembly := {
-      case PathList("org", xs@_*) => MergeStrategy.first
+      case PathList("org", "slf4j", xs@_*) => MergeStrategy.first
       case x =>
         val oldStrategy = (assemblyMergeStrategy in assembly).value
         oldStrategy(x)
