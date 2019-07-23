@@ -38,7 +38,7 @@ object EventStorageToCassandra extends LazyLogging {
         s"INSERT INTO $keyspace.$table_name (id, event_date, tour_value, id_driver, id_passenger) " +
           s"VALUES (${event.id}, ${event.event_date}, ${event.tour_value}, ${event.id_driver}, ${event.id_passenger})"
       )
-      logger.info(s"event has been inserted into table $keyspace.$table_name")
+      logger.info(s"event has been inserted into Cassandra table $keyspace.$table_name")
     }
     catch {
       case e: Exception => logger.info(e.getMessage)

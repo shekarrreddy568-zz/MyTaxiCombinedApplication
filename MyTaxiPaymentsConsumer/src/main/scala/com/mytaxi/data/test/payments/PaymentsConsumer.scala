@@ -44,7 +44,8 @@ object PaymentsConsumer extends LazyLogging {
 
   def main(args: Array[String]): Unit = {
 
-    val logger = Logger(LoggerFactory.getLogger(this.getClass))
+  //  val logger = Logger(LoggerFactory.getLogger(this.getClass))
+    logger.info("starting payments consumer application.......")
     val topics = ConfigFactory.load().getString("application.topic.name")
 
     try {

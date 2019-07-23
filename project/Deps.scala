@@ -13,6 +13,7 @@ object Deps {
   val cassandraDriverVersion = "3.0.0"
   val configVersion = "1.3.2"
   val scalaParserComboVersion = "1.0.4"
+  val logbackVersion = "1.2.3"
 
   lazy val avro = "org.apache.avro" % "avro" % avroVersion
   lazy val avroSerializer = "io.confluent" % "kafka-avro-serializer" % avroSerializerVersion
@@ -27,5 +28,6 @@ object Deps {
   lazy val cassandra = "com.datastax.cassandra" % "cassandra-driver-core" % cassandraDriverVersion
   lazy val scalaConfig = "com.typesafe" % "config" % configVersion
   lazy val scalaParserCombinators = "org.scala-lang.modules" %% "scala-parser-combinators" % scalaParserComboVersion
+  lazy val logbackClassic = "ch.qos.logback" % "logback-classic" % logbackVersion
 
 }

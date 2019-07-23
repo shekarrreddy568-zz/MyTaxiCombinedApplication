@@ -22,6 +22,7 @@ lazy val paymentservice = (project in file ("paymentservice")).
       kafkaClient,
       scalaArm,
       scalaLogging,
+      logbackClassic,
       scallop)
   )
 
@@ -39,6 +40,7 @@ lazy val MyTaxiPaymentsConsumer = (project in file ("MyTaxiPaymentsConsumer")).
       scalaLogging,
       scallop,
       scalaConfig,
+      logbackClassic,
       scalaParserCombinators),
     assemblyMergeStrategy in assembly := {
       case "META-INF/io.netty.versions.properties" => MergeStrategy.first
