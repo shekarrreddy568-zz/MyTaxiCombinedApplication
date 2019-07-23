@@ -25,7 +25,9 @@ lazy val paymentservice = (project in file ("paymentservice")).
       logbackClassic,
       scallop),
     assemblyMergeStrategy in assembly := {
-      case PathList("org/slf4j/impl", xs@_*) => MergeStrategy.first
+      case "org/slf4j/impl/StaticLoggerBinder.class" => MergeStrategy.first
+      case "org/slf4j/impl/StaticMDCBinder.class" => MergeStrategy.first
+      case "org/slf4j/impl/StaticMarkerBinder.class" => MergeStrategy.first
       case x =>
         val oldStrategy = (assemblyMergeStrategy in assembly).value
         oldStrategy(x)
