@@ -4,7 +4,6 @@ import com.datastax.driver.core.Cluster
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.{LazyLogging, Logger}
 
-
 /** This calss aggregates the events produced by the payments service
   *
   *  @constructor create a new even with id, event_date, tour_value, id_driver, id_passenger

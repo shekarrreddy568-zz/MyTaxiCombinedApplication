@@ -21,14 +21,14 @@ object ConfluentProducer extends LazyLogging {
 
   val key: String = "payment"
 
-//  def send(topic: String, payload: String): Unit = {
-//    val record = new ProducerRecord[String, String](topic, key, payload)
-//    producer.send(record)
-//  }
+  //  def send(topic: String, payload: String): Unit = {
+  //    val record = new ProducerRecord[String, String](topic, key, payload)
+  //    producer.send(record)
+  //  }
 
-    def send(topic: String, payload: User): Unit = {
-      val record = new ProducerRecord[String, User](topic, key, payload)
-      producer.send(record)
-    }
+  def send(topic: String, payload: User): Unit = {
+    val record = new ProducerRecord[String, User](topic, key, payload)
+    producer.send(record)
+  }
 
 }

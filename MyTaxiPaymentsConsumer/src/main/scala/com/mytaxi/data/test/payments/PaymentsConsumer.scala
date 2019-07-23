@@ -8,10 +8,8 @@ import com.mytaxi.data.test.paymentservice.avro.User
 import scala.util.parsing.json._
 import com.typesafe.config.ConfigFactory
 import org.apache.kafka.clients.consumer.{ConsumerConfig, KafkaConsumer}
-import com.typesafe.scalalogging.{LazyLogging, Logger}
+import com.typesafe.scalalogging.LazyLogging
 
-import scala.collection.JavaConverters._
-import org.slf4j.LoggerFactory
 import org.apache.kafka.common.serialization.StringDeserializer
 import io.confluent.kafka.serializers.KafkaAvroDeserializer
 
@@ -29,8 +27,8 @@ object PaymentsConsumer extends LazyLogging {
     val props = new Properties()
     props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, ConfigFactory.load().getString("application.kafka.brokers"))
     props.put(ConsumerConfig.CLIENT_ID_CONFIG, ConfigFactory.load().getString("application.client.id"))
-//  props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, ConfigFactory.load().getString("application.key.deserializer"))
-//  props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ConfigFactory.load().getString("application.value.deserializer"))
+    //  props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, ConfigFactory.load().getString("application.key.deserializer"))
+    //  props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ConfigFactory.load().getString("application.value.deserializer"))
     props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, classOf[StringDeserializer].getCanonicalName)
     props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, classOf[KafkaAvroDeserializer].getCanonicalName)
     props.put(ConsumerConfig.GROUP_ID_CONFIG, ConfigFactory.load().getString("application.group.id"))
@@ -44,7 +42,6 @@ object PaymentsConsumer extends LazyLogging {
 
   def main(args: Array[String]): Unit = {
 
-  //  val logger = Logger(LoggerFactory.getLogger(this.getClass))
     logger.info("starting payments consumer application.......")
     val topics = ConfigFactory.load().getString("application.topic.name")
 
@@ -77,7 +74,7 @@ object PaymentsConsumer extends LazyLogging {
               logger.info(s"event: $event")
 
               EventStorageToCassandra.insertIntoCassandraTable(event) // calling the insertIntoCassandraTable fucntion
-              consumer.commitSync // comminting the offsets
+              consumer.commitSync() // comminting the offsets
           }
         }
 
