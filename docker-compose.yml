@@ -50,6 +50,10 @@ services:
       SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'kafka:9092'
     extra_hosts:
       - "localhost: 127.0.0.1"
+    command: |
+      bash -c 'echo Waiting for Kafka to be ready... && \
+      echo stat | nc kafka 9092  && \
+      exec /etc/confluent/docker/run'
     healthcheck:
       test: ["CMD", "curl", "-f", "http://schemaregistry:8081"]
       interval: 1m30s
