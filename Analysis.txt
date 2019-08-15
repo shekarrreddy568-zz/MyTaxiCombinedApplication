@@ -1,0 +1,49 @@
+SQL requires you to use predefined schemas to determine the structure of your data before you work with it. 
+A NoSQL database has dynamic schema for unstructured data. Data is stored in many ways which means it can be document-oriented, column-oriented, graph-based or organized as a KeyValue store. 
+
+SQL databases are vertically scalable
+NoSQL databases are horizontally scalable, Thus NoSQL can ultimately become larger and more powerful, making these databases the preferred choice for large or ever-changing data sets.
+
+SQL databases follow ACID properties (Atomicity, Consistency, Isolation and Durability) whereas the NoSQL database follows the Brewers CAP theorem (Consistency, Availability and Partition tolerance).
+
+SQL has a standard interface for handling complex queries, it would be great to deal with complex queries. 
+Feebly, we don’t have any standard interface in NoSQL, so it’s quite difficult to handle complex queries in NoSQL.
+
+NoSQL database is used for distributed data stores with humongous data storage needs. NoSQL is used for Big data and real-time web apps
+
+NoSQL databases are usually faster - and sometimes extremely speedier - when it comes to writes. Reads can also be very fast depending on the type of NoSQL database and data being queried.
+
+------------------------------
+
+HBase doesn’t have a query language, which means that you’ll have to work with HBase shell and involve extra technologies like Apache Hive, Apache Drill or something of the kind. 
+While Cassandra can boast its own CQL (Cassandra Query Language), which Cassandra specialists find most helpful.
+
+Cassandra allows for a primary key to contain multiple columns and HBase, unlike Cassandra, has only 1-column row key and lays the burden of row key design on the developer. 
+Also, Cassandra’s primary key consist of a partition key and clustering columns, where the partition key also can contain multiple columns.
+
+Cassandra has a masterless architecture, while HBase has a master-based one
+HBase has a single point of failure, while Cassandra doesn’t
+
+Cassandra’s architecture supports both data management and storage, while HBase’s architecture is designed for data management only. 
+By its nature, HBase relies heavily on other technologies, such as HDFS for storage, Apache Zookeeper for server status management and metadata. And again, it needs extra technologies to run queries
+
+Performance: Write: very much alike sometimes Cassandra is better
+the actual measurements of Cassandra’s write performance (in a 32-node cluster, almost 326,500 operations per second versus HBase’s 297,000) also prove that Cassandra is better at writes than HBase.
+Read: If you need lots of fast and consistent reads (random access to data and scans), then you can opt for HBase  	
+If you’ve read that Cassandra is also very good at reads, you may be bewildered by the conclusion that HBase is better
+
+Cassandra is good for ‘always-on’ web or mobile apps and projects with complex and/or real-time analytics. 
+But if there’s no rush for analysis results (for instance, doing data lake experiments or creating machine learning models), HBase may be a good choice. 
+--------------------------------------
+
+Key / Value:
+e.g. Redis, MemcacheDB, etc.
+
+Column:
+e.g. Cassandra, HBase, etc.
+
+Document:
+e.g. MongoDB, Couchbase, etc
+
+Graph:
+e.g. OrientDB, Neo4J, etc.
